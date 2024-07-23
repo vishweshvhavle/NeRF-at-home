@@ -140,9 +140,11 @@ python src/run_nerf.py --test --data_path src/data/my_dataset --model_dir checkp
 ## Directory Structure
 
 - `src/`: Main source code
-  - `assets/`: 3D models and textures
+  - `assets/`: 3D models and material files
   - `shaders/`: GLSL shader files
   - `data/`: Default directory for rendered videos and frames
+  - `model/`: Default directory for model checkpoints
+  - `output/`: Default directory for output of novel views
 - `imgs/`: Images for the README.md
 
 ## License
