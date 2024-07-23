@@ -7,3 +7,4 @@ opencv-python
 pywavefront
 pyglet
 tqdm
+matplotlib
