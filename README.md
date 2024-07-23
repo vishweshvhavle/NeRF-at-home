@@ -116,11 +116,11 @@ You can run the NeRF implementation with various command-line arguments to custo
 python src/run_nerf.py [OPTIONS]
 ```
 ### Options:
-- `--iterations`: Number of iterations for training (default10000)
+- `--iterations`: Number of iterations for training (default: 250)
 - `--train`: Flag to indicate training mode
 - `--test`: Flag to indicate test mode
-- `--output_dir`: Directory to store outputs (default"output")
-- `--model_dir`: Directory to store model checkpoints (default"models")
+- `--output_dir`: Directory to store outputs (default: "src/output")
+- `--model_dir`: Directory to store model checkpoints (default: "src/models")
 - `--data_path`: Path to the dataset (required)
 
 ### Modes:
@@ -128,7 +128,7 @@ python src/run_nerf.py [OPTIONS]
 Training Mode:
 
 ```bash
-python src/run_nerf.py --train --iterations 15000 --data_path src/data/my_dataset --output_dir results --model_dir checkpoints
+python src/run_nerf.py --train --iterations 250 --data_path src/data/my_dataset --output_dir results --model_dir checkpoints
 ```
 
 Testing Mode:

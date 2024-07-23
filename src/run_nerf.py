@@ -128,7 +128,7 @@ def test(model, dataloader):
 # Argument parser
 def get_args():
     parser = argparse.ArgumentParser(description="Run NeRF on a dataset")
-    parser.add_argument("--iterations", type=int, default=10000, help="Number of iterations for training")
+    parser.add_argument("--iterations", type=int, default=250, help="Number of iterations for training")
     parser.add_argument("--train", action='store_true', help="Flag to indicate training mode")
     parser.add_argument("--test", action='store_true', help="Flag to indicate test mode")
     parser.add_argument("--output_dir", type=str, default="output", help="Directory to store outputs")
