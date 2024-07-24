@@ -36,7 +36,7 @@ def init_glfw():
     # print("Initializing GLFW...")
     if not glfw.init():
         raise Exception("GLFW can't be initialized")
-    window = glfw.create_window(1200, 800, "OBJ Viewer", None, None)
+    window = glfw.create_window(800, 800, "OBJ Viewer", None, None)
     glfw.set_window_pos(window, 100, 100)
     glfw.make_context_current(window)
     return window
@@ -121,7 +121,7 @@ def setup_matrices(shader_program, scale, axis, angle):
     model = glm.scale(glm.mat4(1.0), glm.vec3(scale, scale, scale))
     model = glm.rotate(model, glm.radians(angle), glm.vec3(*axis))
     view = glm.lookAt(glm.vec3(*shader_params["eye_pos"]), glm.vec3(0.0, 0.0, 0.0), glm.vec3(0.0, 1.0, 0.0))
-    projection = glm.perspective(glm.radians(45.0), 1200 / 800, 0.1, 100.0)
+    projection = glm.perspective(glm.radians(45.0), 800 / 800, 0.1, 100.0)
 
     model_loc = glGetUniformLocation(shader_program, "vModel")
     view_loc = glGetUniformLocation(shader_program, "vView")
@@ -169,7 +169,7 @@ def render_video(window, vao, num_indices, shader_program, model, view, projecti
     output_path = os.path.join(output_dir, output_filename)
     
     fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-    out = cv2.VideoWriter(output_path, fourcc, 24, (1200, 800))
+    out = cv2.VideoWriter(output_path, fourcc, 24, (800, 800))
     
     pose_data = []
     
@@ -186,13 +186,16 @@ def render_video(window, vao, num_indices, shader_program, model, view, projecti
         
         # Capture frame
         glPixelStorei(GL_PACK_ALIGNMENT, 1)
-        data = glReadPixels(0, 0, 1200, 800, GL_RGB, GL_UNSIGNED_BYTE)
-        image = np.frombuffer(data, dtype=np.uint8).reshape(800, 1200, 3)
+        data = glReadPixels(0, 0, 800, 800, GL_RGB, GL_UNSIGNED_BYTE)
+        image = np.frombuffer(data, dtype=np.uint8).reshape(800, 800, 3)
         image = cv2.flip(image, 0)
         image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
         
         # Apply Gaussian blur
         blurred_image = apply_gaussian_blur(image, gaussian_blur_params["kernel_size"], gaussian_blur_params["sigma"])
+
+        # Resize to 100x100
+        blurred_image = cv2.resize(image, (100, 100), interpolation=cv2.INTER_AREA)
         
         # Save frame
         frame_filename = f"frame_{i:04d}.png"
