@@ -10,9 +10,6 @@ This project loads and renders a .OBJ models using OpenGL with Phong shading. It
 <p align="center">
   <img src="imgs/data_generator_gui.png" alt="OBJ GUI" style="width:100%;"/>
 </p>
-<p align="center">
-  <img src="imgs/nerf_results.gif" alt="NeRF Results" style="width:100%;"/>
-</p>
 
 ## Setup
 
@@ -70,6 +67,11 @@ This project loads and renders a .OBJ models using OpenGL with Phong shading. It
         ├── result_0001.png
         └── ...
     ```
+
+6. Output Example:
+    <p align="center">
+    <img src="imgs/nerf_results.gif" alt="NeRF Results" style="width:100%;"/>
+    </p>
 
 ## Data Generation
 
