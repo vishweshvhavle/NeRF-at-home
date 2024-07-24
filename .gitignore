@@ -164,7 +164,9 @@ cython_debug/
 # Data heavy directories
 src/data/
 src/models/
-src/output/
+src/outputs/
+src/results/
+src/assets/
 src/assets/
 src/metadata/
 src/results/

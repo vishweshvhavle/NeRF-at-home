@@ -8,6 +8,7 @@
 This project loads and renders a .OBJ models using OpenGL with Phong shading. It allows for interactive viewing, data generation and video rendering for Neural Rendering testing with customizable parameters. This repository also includes as custom implementation of NeRF in PyTorch. This code has only been tested on Ubuntu 22.04 with Nvidia GTX 1650 Ti.
 
 ![OBJ GUI](imgs/data_generator_gui.png)
+![NeRF Results](imgs/nerf_results.gif)
 
 ## Setup
 
